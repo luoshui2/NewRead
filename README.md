@@ -16,4 +16,7 @@ android新闻列表阅读器
 10.利用js进行网页的信息屏蔽，利用selector筛选出指定的信息
 ## 效果显示
 1.新闻列表界面：![Image](https://github.com/luoshui2/NewRead/blob/master/app/src/main/res/drawable/Screenshot_20230926_104456.png)  
+
+
+  
 2.新闻详情界面：![Image](https://github.com/luoshui2/NewRead/blob/master/app/src/main/res/drawable/Screenshot_20230926_104515.png)
