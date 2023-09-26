@@ -39,6 +39,9 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         Intent intent = getIntent();
         url = intent.getStringExtra(Constants.NEWS_DETAIL_URL_KEY);
+        if(!url.contains("http")){
+            url = "https" + url;
+        }
         Log.d("flag2","url = "+url);
         //url = "https://www.1905.com/news/20230925/1642977.shtml";
         webView = findViewById(R.id.wv);
@@ -48,7 +51,7 @@ public class DetailActivity extends AppCompatActivity {
         webSettings.setDomStorageEnabled(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
-
+        webSettings.setAllowFileAccess(true);
 
         webView.setWebViewClient(new WebViewClient(){
             //url的意图被拒绝
@@ -66,6 +69,8 @@ public class DetailActivity extends AppCompatActivity {
                 view.loadUrl("javascript:function setTop(){document.querySelector('body > div.m-crm.g-wp > div > div').style.display=\"none\";}setTop();");
                 view.loadUrl("javascript:function setTop(){document.querySelector('body > div.m-ft').style.display=\"none\";}setTop();");
                 view.loadUrl("javascript:function setTop(){document.querySelector('body > div.m-content.g-wp.f-cb > div.main > div.m-more').style.display=\"none\";}setTop();");
+                view.loadUrl("javascript:function setTop(){document.querySelector('body > div.main_content.w1280 > div.con_right').style.display=\"none\";}setTop();");
+                view.loadUrl("javascript:function setTop(){document.querySelector('#cont_1_1_2 > div.content_maincontent_more > div.content_maincontent_content > div.channel').style.display=\"none\";}setTop();");
             }
         });
         webView.loadUrl(url);
